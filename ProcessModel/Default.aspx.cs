@@ -29,7 +29,7 @@ namespace ProcessModel
             ThreadPool.GetMinThreads(out minWorker, out minIOC);
             ThreadPool.GetMaxThreads(out maxWorker, out maxIOC);
 
-            Response.Write(string.Format("<tr><th>Modified</th><th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th></tr>", minIOC, maxIOC, minWorker, maxIOC));
+            Response.Write(string.Format("<tr><th>Modified</th><th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th></tr>", minIOC, maxIOC, minWorker, maxWorker));
             Response.Write("</table>");
 
         }
