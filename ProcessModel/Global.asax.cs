@@ -75,24 +75,20 @@ namespace ProcessModel
         {
 
             // Code that runs on application startup
-            int minWorker, minIOC;
-            // Get the current settings.
+            int minWorker, minIOC, maxWorker, maxIOC;
+            
+            // Get the current ThreadPool settings.
             ThreadPool.GetMinThreads(out minWorker, out minIOC);
-
-            defaultMinWorker = minWorker;
-            defaultMinIOC = minIOC;
-
-
-            //Modify the Minimum threads in the ThreadPool
-            ThreadPool.SetMinThreads(200, 12);
-
-            int maxWorker, maxIOC;
-            // Get the current settings
             ThreadPool.GetMaxThreads(out maxWorker, out maxIOC);
 
+            // Saving the initial default values in local variables
+            defaultMinWorker = minWorker;
+            defaultMinIOC = minIOC;
             defaultMaxWorker = maxWorker;
             defaultMaxIOC = maxIOC;
 
+            //Modify the ThreadPool settings
+            ThreadPool.SetMinThreads(200, 12);
             ThreadPool.SetMaxThreads(10000, 1500);
 
         }
